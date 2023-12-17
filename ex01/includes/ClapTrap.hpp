@@ -14,7 +14,7 @@
 #define RESET "\033[0m"
 
 class ClapTrap {
-	private:
+	protected:
 		std::string _name;
 		unsigned int _hitPoints;
 		unsigned int _energyPoints;
