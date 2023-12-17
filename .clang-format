@@ -1,0 +1,11 @@
+BasedOnStyle: LLVM
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 4
+EmptyLineAfterAccessModifier: Leave
+IncludeBlocks: Merge
+IndentExternBlock: Indent
+IndentPPDirectives: BeforeHash
+IndentWidth: 4
+Language: Cpp
+Standard: c++03
+TabWidth: 4
