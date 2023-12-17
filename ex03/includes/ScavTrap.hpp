@@ -13,6 +13,7 @@ class ScavTrap : virtual public ClapTrap {
 		~ScavTrap(void);
 
 		void guardGate(void);
+		void attack(std::string const &target);
 
 	protected:
 		bool guardmode;

@@ -9,8 +9,9 @@ DiamondTrap::DiamondTrap(void) : ScavTrap(), FragTrap() {
 	this->_attackDamage = FragTrap::_frag_attackDamage;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ScavTrap(name + "_clap_name"),
-											  FragTrap(name + "_clap_name") {
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), 
+											ScavTrap(name + "_clap_name"),
+											FragTrap(name + "_clap_name") {
 	this->_name = name;
 	this->_hitPoints = FragTrap::_frag_hitPoints;
 	this->_energyPoints = ScavTrap::_scav_energyPoints;
@@ -44,4 +45,16 @@ DiamondTrap::~DiamondTrap(void) {
 void DiamondTrap::whoAmI(void) {
 	std::cout << "DiamondTrap name: " << this->_name << std::endl;
 	std::cout << "ClapTrap name: " << ClapTrap::_name << std::endl;
+}
+
+bool is_alive(DiamondTrap &clap_trap) {
+	if (clap_trap.get_hit_points() > 0) {
+		return (true);
+	}
+	return (false);
+}
+
+void DiamondTrap::attack(const std::string &target) {
+	ScavTrap::attack(target);
+	return ;
 }

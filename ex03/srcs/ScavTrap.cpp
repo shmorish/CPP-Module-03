@@ -55,3 +55,29 @@ void ScavTrap::guardGate(void) {
 	}
 	return ;
 }
+
+bool is_alive(ScavTrap &clap_trap) {
+	if (clap_trap.get_hit_points() > 0) {
+		return (true);
+	}
+	return (false);
+}
+
+void ScavTrap::attack(const std::string &target) {
+	if (!is_alive(*this)) {
+		std::cout << RED
+				<< "ScavTrap " << _name << " is already dead!" << RESET
+				<< std::endl;
+		return ;
+	}
+	if (_energyPoints <= 0) {
+		std::cout << ORANGE
+				<< "ScavTrap " << _name << " has no energy!" << RESET
+				<< std::endl;
+		return ;
+	}
+	_energyPoints--;
+    std::cout << ORANGE
+			<< "ScavTrap " << _name << " attacks " << target << ", causing "
+            << _attackDamage << " points of damage!" << RESET << std::endl;
+}
