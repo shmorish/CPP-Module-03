@@ -1,25 +1,32 @@
 #include "../includes/ClapTrap.hpp"
 #include "../includes/ScavTrap.hpp"
 
-int main(void) {
-	ScavTrap	a;
-	ScavTrap	b("Bob");
-	ScavTrap	c("Carol");
-	ScavTrap	d("David");
-
-	std::cout << "-- test a --" << std::endl;
-	for (int i = 0; i < 51; i++)
+int main(void)
+{
 	{
-		std::cout << i << ": ";
-		a.attack("Bob");
+		std::cout << "----- Test [0] case -----" << std::endl;
+		ScavTrap	Alice("Alice");
+		ScavTrap	Bob("Bob");
+
+		for (int i = 0; i < 6; i++) {
+			Alice.attack("Bob");
+			Bob.takeDamage(20);
+		}
+		Bob.beRepaired(100);
+		Alice.guardGate();
+		Bob.guardGate();
+		Alice.guardGate();
+		Bob.guardGate();
 	}
-	std::cout << std::endl << "-- test b --" << std::endl;
-	b.attack("Carol");
-	b.takeDamage(1);
-	b.beRepaired(1);
-	std::cout << std::endl << "-- test c --" << std::endl;
-	c.attack("Bob");
-	c.guardGate();
-	c.guardGate();
-	std::cout << "-- test end --" << std::endl;
+	{
+		std::cout << "----- Test [1] case -----" << std::endl;
+		ScavTrap	Alice("Alice");
+
+		for (int i = 0; i < 51; i++) {
+			std::cout << i << " ";
+			Alice.attack("target");
+		}
+		Alice.takeDamage(5);
+		Alice.beRepaired(10);
+	}
 }
